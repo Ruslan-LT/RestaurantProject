@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.http import HttpResponseNotFound, HttpResponse
 
-# Create your views here.
+def page_not_found(request, exception):
+    return HttpResponseNotFound("<h1>Сторінку не знайдено 😕</h1>")
+
+def main_page(request):
+    return HttpResponse('<h1>Головна сторінка</)h1>')
+
