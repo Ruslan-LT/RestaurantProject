@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav div {
+    color: white;
+    margin: 10px;
+    padding: 16px;
+    border-radius: 15px;
+    border: 2px solid white;
+    transition: 0.3s;
+}
+
+nav div:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+nav div:hover a {
+    color: black;
+}
+
+
+nav div:active {
+    transform: scale(0.9);
+}
+
+nav div a {
+    color: white;
+    text-decoration: none;
+}
+
+.header_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 98%;
+    background-color: black;
+    padding: 0 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+

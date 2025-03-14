@@ -21,7 +21,9 @@ from restaurant.views import page_not_found
 from restaurant import views
 
 urlpatterns = [
-    path('main_page/', views.main_page, name='main_page' ),
+    path('main_page/', views.main_page, name='main_page'),
+    path('about/', views.about, name='about'),
+    path('login/', views.login, name='login'),
 ]
 
 handler404 = page_not_found
