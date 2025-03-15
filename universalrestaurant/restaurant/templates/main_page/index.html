@@ -1,25 +1,12 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{title}}</title>
-    <link type="text/css" href="{% static '/restaurant/css/main_page.css' %}" rel="stylesheet" />
-</head>
-<body>
-<div class="header_container">
-    <nav class="nav">
-        {% for b in nav_buttons %}
-            {% if not forloop.last %}
-            <div><a href="{% url b.ref %}">{{ b.title }}</a></div>
-            {% else %}
-            </nav>
-            <nav class="nav">
-            <div><a href="{% url b.ref %}">{{ b.title }}</a></div>
-            </nav>
-            {% endif %}
+{% extends 'base.html' %}
+{% block content %}
+<div class="food_chose_div">
+    <nav class="food_chose_nav">
+        {% for fb in food_buttons %}
+        <div class="chose_div">
+            <a class="chose_a" href="{% url fb.ref %}">{{ fb.title }}</a>
+        </div>
         {% endfor %}
+    </nav>
 </div>
-</body>
-</html>
+{% endblock %}

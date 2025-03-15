@@ -3,23 +3,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{title}}</title>
-    <link type="text/css" href="{% static '/restaurant/css/main_page.css' %}" rel="stylesheet" />
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'restaurant/css/main_page.css' %}" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+
+
+        .chose_div {
+            margin: 10px;
+            padding: 16px;
+            border-radius: 15px;
+            border: 2px solid black;
+            transition: 0.5s;
+            display: inline-block;
+        }
+
+        .chose_div:hover {
+            transform: scale(1.1);
+            background-color: black;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .chose_a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .chose_div:hover .chose_a {
+            color: white;
+        }
+    </style>
 </head>
 <body>
-<div class="header_container">
-    <nav class="nav">
-        {% for b in nav_buttons %}
+    <div class="header_container">
+        <nav class="nav">
+            {% for b in nav_buttons %}
             {% if not forloop.last %}
-            <div><a href="{% url b.ref %}">{{ b.title }}</a></div>
+                <div class="nav_div">
+                    <a href="{% url b.ref %}" class="nav_a">{{ b.title }}</a>
+                </div>
             {% else %}
             </nav>
-            <nav class="nav">
-            <div><a href="{% url b.ref %}">{{ b.title }}</a></div>
+            <nav>
+                <div class="nav_div">
+                    <a href="{% url b.ref %}" class="nav_a">{{ b.title }}</a>
+                </div>
             </nav>
             {% endif %}
-        {% endfor %}
-</div>
-{% block content %} {% endblock %}
+            {% endfor %}
+    </div>
+    {% block content %} {% endblock %}
 </body>
 </html>

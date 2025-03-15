@@ -5,31 +5,31 @@ body {
     text-align: center;
 }
 
-nav div {
+.nav_div {
     color: white;
     margin: 10px;
     padding: 16px;
     border-radius: 15px;
     border: 2px solid white;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
-nav div:hover {
+.nav_div:hover {
     transform: scale(1.1);
     background-color: white;
     color: black;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
 }
-nav div:hover a {
+.nav_a:hover{
     color: black;
 }
 
 
-nav div:active {
+.nav_div:active {
     transform: scale(0.9);
 }
 
-nav div a {
+.nav_a {
     color: white;
     text-decoration: none;
 }
@@ -48,4 +48,3 @@ nav div a {
     display: flex;
     gap: 20px;
 }
-
