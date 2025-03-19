@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class="food_chose_div">
-    <nav class="food_chose_nav">
-        {% for fb in food_buttons %}
-        <div class="chose_div">
-            <a class="chose_a" href="{% url fb.ref %}">{{ fb.title }}</a>
-        </div>
-        {% endfor %}
-    </nav>
-</div>
+    <div class="main_content">
+        <b>Ресторан <span id="UR">UniversalRestaurant</span></b>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer class="main_page_footer">
+        Copyright © Litvinov Ruslan 2025
+    </footer>
 {% endblock %}
