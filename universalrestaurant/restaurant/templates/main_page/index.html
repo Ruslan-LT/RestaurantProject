@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content %}
+    <div class="stars">
+        {% for i in "12345" %}
+            <div class="star" id="star{{ forloop.counter }}">☆</div>
+        {% endfor %}
+    </div>
     <div class="main_content">
         <b>Ресторан <span id="UR">UniversalRestaurant</span></b>
     </div>
 {% endblock %}
-
 {% block footer %}
     <footer class="main_page_footer">
-        Copyright © Litvinov Ruslan 2025
+        Copyright &nbsp;©&nbsp; <i>Litvinov Ruslan</i> &nbsp;2025
     </footer>
 {% endblock %}
