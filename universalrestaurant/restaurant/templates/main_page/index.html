@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="main_page_div">
     <div class="stars">
         {% for i in "12345" %}
             <div class="star" id="star{{ forloop.counter }}">☆</div>
@@ -8,6 +9,7 @@
     <div class="main_content">
         <b>Ресторан <span id="UR">UniversalRestaurant</span></b>
     </div>
+</div>
 {% endblock %}
 {% block footer %}
     <footer class="main_page_footer">

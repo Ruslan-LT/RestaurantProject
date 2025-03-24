@@ -19,7 +19,8 @@ def about(request):
     data = {
         'title': 'Про Нас',
         'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons
+        'food_buttons': food_buttons,
+        'page_content':'Текст про те, наскільки цей ресторан є гарним та класним 😎'
     }
     return render(request, 'about/index.html', context=data)
 
