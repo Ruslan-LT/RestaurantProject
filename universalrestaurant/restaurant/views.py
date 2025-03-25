@@ -2,7 +2,6 @@ from django.http import HttpResponseNotFound, HttpResponse
 from django.shortcuts import render
 from django.template.defaultfilters import title
 
-
 food_buttons = [{'title': 'Звичайні страви', 'ref':'normal_food'},
                {'title': "М'ясні страви", 'ref':'meat_food'},
                {'title': 'Морепродукти', 'ref':'sea_food'}]
@@ -12,56 +11,25 @@ nav_buttons = [{'title': 'Головна сторінка', 'ref':'main_page'},
                {'title': 'Зареєструватися', 'ref':'login'},
                {'title':'Каталог Страв', 'food_buttons':food_buttons}]
 
-def page_not_found(request, exception):
-    return HttpResponseNotFound("<h1>Сторінку не знайдено 😕</h1>")
+
+def return_page(request, title, template_name, **kwargs):
+    data = {
+        'title': title,
+        'nav_buttons': nav_buttons,
+        'food_buttons': food_buttons,
+        **kwargs
+    }
+    return render(request, template_name, context=data)
 
 def about(request):
-    data = {
-        'title': 'Про Нас',
-        'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons,
-        'page_content':'Текст про те, наскільки цей ресторан є гарним та класним 😎'
-    }
-    return render(request, 'about/index.html', context=data)
+    content = 'Текст про те, наскільки цей ресторан є гарним та классним'
+    return return_page(request,'Про нас', 'about/index.html', page_content=content)
 
 def main_page(request):
-    data = {
-        'title':'Головна сторінка',
-        'nav_buttons': nav_buttons,
-        'food_buttons':food_buttons
-    }
-    return render(request, "main_page/index.html", context=data)
+    return return_page(request, 'Головна сторінка',"main_page/index.html")
 
 def login(request):
-    data = {
-        'title': 'Логін',
-        'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons
-    }
-    return render(request, 'login/index.html', context=data)
+    return return_page(request,'Логін', 'login/index.html')
 
-def normal_food(request):
-    data = {
-        'title': 'Звичайні страви',
-        'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons
-    }
-    return render(request, 'normal_food/index.html', context=data)
-
-def sea_food(request):
-    data = {
-        'title': "Морські страви",
-        'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons
-    }
-    return render(request, 'sea_food/index.html', context=data)
-
-
-def meat_food(request):
-    data = {
-        'title': "М'ясні страви",
-        'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons,
-    }
-    return render(request, 'meat_food/index.html', context=data)
-
+def page_not_found(request, exception):
+    return HttpResponseNotFound("<h1>Сторінку не знайдено 😕</h1>")

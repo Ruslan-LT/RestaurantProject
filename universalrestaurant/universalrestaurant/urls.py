@@ -22,10 +22,11 @@ from restaurant import views
 from restaurant import urls
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('main_page/', views.main_page, name='main_page'),
     path('about/', views.about, name='about'),
     path('login/', views.login, name='login'),
-    path('main_page/', include('restaurant.urls'))
+    path('main_page/', include('dishes.urls'))
 ]
 
 handler404 = page_not_found
