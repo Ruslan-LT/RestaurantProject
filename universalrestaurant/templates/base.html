@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
@@ -11,27 +11,25 @@
     <div class="header_container">
         <nav class="nav">
             {% for b in nav_buttons %}
-            {% if not forloop.last %}
-                <div class="nav_div">
-                    <a href="{% url b.ref %}" class="nav_a">{{ b.title }}</a>
-                </div>
-            {% else %}
-            <div class="menu_container">
-                <button id="menu_button">{{ b.title }}</button>
-                <ul id="dropdown-menu" class="hidden">
-                    {% for but in food_buttons %}
-                    <li><a href="{% url but.ref %}">{{ but.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
+                {% if b.other_buttons %}
+                    <div class="menu_container">
+                        <button class="main_button" data-index="{{ forloop.counter }}">{{ b.title }}</button>
+                        <ul class="dropdown-menu hidden" id="dropdown-menu-{{ forloop.counter }}">
+                            {% for but in b.other_buttons %}
+                                <li><a href="{% url but.ref %}">{{ but.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <a href="{% url b.ref %}"><button class="main_button2">{{ b.title }}</button></a>
+                {% endif %}
             {% endfor %}
         </nav>
         <nav id="naw2">
             <label>
                 <input type="text" placeholder="Search">
             </label>
-            <button id="search_button" style="margin: 20px">Пошук</button>
+            <button class="main_button" style="margin: 20px">Пошук</button>
         </nav>
     </div>
     {% block content %} {% endblock %}
@@ -39,3 +37,5 @@
     <script src="{% static 'restaurant/js/main_page.js' %}"></script>
 </body>
 </html>
+
+

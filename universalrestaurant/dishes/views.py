@@ -1,14 +1,6 @@
 from django.shortcuts import render
 
-
-food_buttons = [{'title': 'Звичайні страви', 'ref':'normal_food'},
-               {'title': "М'ясні страви", 'ref':'meat_food'},
-               {'title': 'Морепродукти', 'ref':'sea_food'}]
-
-nav_buttons = [{'title': 'Головна сторінка', 'ref':'main_page'},
-               {'title': 'Про нас', 'ref':'about'},
-               {'title': 'Зареєструватися', 'ref':'login'},
-               {'title':'Каталог Страв', 'food_buttons':food_buttons}]
+from nav_buttons.navigate_buttons import nav_buttons
 
 from dishes.utils import json_format
 
@@ -17,7 +9,6 @@ def render_food_page(request, title, template_name, **kwargs):
     data = {
         'title': title,
         'nav_buttons': nav_buttons,
-        'food_buttons': food_buttons,
         **kwargs
     }
     return render(request, template_name, context=data)

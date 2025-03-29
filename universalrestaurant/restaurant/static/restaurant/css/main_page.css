@@ -18,15 +18,16 @@ body {
 
 .nav_div {
     color: white;
-    margin: 10px;
+    margin: 8px;
     padding: 16px;
     border-radius: 15px;
     border: 2px solid white;
     transition: 0.5s;
+    font-size: 13px;
 }
 
 .nav_div:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: white;
     color: black;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
@@ -50,6 +51,7 @@ body {
 }
 
 .header_container {
+    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +59,8 @@ body {
     width: 98%;
     background-color: black;
     padding: 0 20px;
+
+
 }
 
 .nav {
@@ -88,8 +92,8 @@ body {
     display: inline-block;
 }
 
-#menu_button, #search_button{
-    padding: 10px;
+.main_button, .main_button2{
+    padding: 8px;
     cursor: pointer;
     background-color: black;
     color: white;
@@ -97,6 +101,7 @@ body {
     border-radius: 15px;
     height: 53px;
     transition: 0.5s;
+    font-size: 12px;
 }
 
 #search_button{
@@ -112,18 +117,19 @@ body {
 
 }
 
-#menu_button:hover, #search_button:hover{
-    transform: scale(1.1);
+.main_button:hover, .main_button2:hover{
+    transform: scale(1.05);
     background-color: white;
     color: black;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
 }
 
-#menu_button:active, #search_button:active{
+.main_button:active, .main_button:active{
     transform: scale(0.9);
 }
 
-#dropdown-menu {
+.dropdown-menu {
+    z-index: 1500;
     position: absolute;
     top: 100%;
     left: 0;
@@ -138,20 +144,19 @@ body {
     border: 3px solid white;
 }
 
-#dropdown-menu li {
+.dropdown-menu li {
     padding: 10px;
     cursor: pointer;
     transition: background 0.3s;
     background-color: black;
 }
 
-#dropdown-menu li a{
+.dropdown-menu li a {
     text-decoration: none;
     color: white;
-
 }
 
-#dropdown-menu li:hover {
+.dropdown-menu li:hover {
     background-color: #555;
 }
 
