@@ -16,7 +16,7 @@
                         <button class="main_button" data-index="{{ forloop.counter }}">{{ b.title }}</button>
                         <ul class="dropdown-menu hidden" id="dropdown-menu-{{ forloop.counter }}">
                             {% for but in b.other_buttons %}
-                                <li><a href="{% url but.ref %}">{{ but.title }}</a></li>
+                                <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

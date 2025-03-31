@@ -20,13 +20,23 @@ from django.views.defaults import page_not_found
 from restaurant.views import page_not_found
 from restaurant import views
 from restaurant import urls
+from django.urls import include, path
+from debug_toolbar.toolbar import debug_toolbar_urls
+from django.conf.urls.static import static
+
+from universalrestaurant import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('main_page/', views.main_page, name='main_page'),
     path('about/', views.about, name='about'),
     path('login/', views.login, name='login'),
     path('main_page/', include('dishes.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns +=  debug_toolbar_urls()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 handler404 = page_not_found

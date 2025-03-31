@@ -1,3 +1,7 @@
 from django.contrib import admin
-
-# Register your models here.
+from restaurant.models import My_profile_Buttons
+# # Register your models here.
+#
+@admin.register(My_profile_Buttons)
+class MyProfileButtonsAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("name",)}

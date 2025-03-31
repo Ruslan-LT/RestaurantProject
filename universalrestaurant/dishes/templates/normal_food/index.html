@@ -10,12 +10,22 @@
     <div class="main_container">
         {% for fd in food %}
         <div class="card">
-            <span class="badge">Знижка 10.00 %</span>
-            <img class="dish_img" src="{% static fd.img %}" alt="Чайный столик и три стула">
+            {% if fd.discount %}
+            <span class="badge">Знижка {{ fd.discount }}%</span>
+            {% endif %}
+            {% if fd.image %}
+                <img class="dish_img" src="{{ fd.image.url }}" alt="{{ fd.name }}">
+            {% else %}
+                <img class="dish_img" src="{% static 'img/img_not_found.jpg' %}" alt="Зображення не знайдено">
+            {% endif %}
                  <div class="card-body">
                      <a href="#" class="card-title">{{ fd.name }}</a>
-                     <p class="card-text">{{ fd.desc }}</p>
-                     <p class="price"><span class="old-price">100 $</span> 90.00 $</p>
+                     <p class="card-text">{{ fd.description }}</p>
+                     {% if fd.discount %}
+                         <p class="price"><span class="old-price">{{ fd.price }} </span><strong>{{ fd.sell_price }} грн</strong></p>
+                     {% else %}
+                        <p class="price"><strong>{{ fd.price }} грн</strong></p>
+                     {% endif %}
                      <img class="cart-icon" src="{% static  'img/add_to_cart.png' %}" alt="Добавити до корзини">
                  </div>
         </div>
