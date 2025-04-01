@@ -16,7 +16,12 @@
                         <button class="main_button" data-index="{{ forloop.counter }}">{{ b.title }}</button>
                         <ul class="dropdown-menu hidden" id="dropdown-menu-{{ forloop.counter }}">
                             {% for but in b.other_buttons %}
+                            {% if but.name == "Особистий кабінет" %}
                                 <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
+                                <hr class="line">
+                            {% else %}
+                                <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
+                            {% endif %}
                             {% endfor %}
                         </ul>
                     </div>

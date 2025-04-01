@@ -1,8 +1,7 @@
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
-from django.template.defaultfilters import title
 
-from nav_buttons.navigate_buttons import nav_buttons
+from utils.navigate_buttons import nav_buttons
 
 
 def return_page(request, title, template_name, **kwargs):

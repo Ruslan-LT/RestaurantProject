@@ -12,7 +12,7 @@ nav_buttons = [{'title': 'Головна сторінка', 'ref':'main_page'},
                {'title':'Мій профіль', 'other_buttons':my_profile_buttons},]
 
 
-# food_buttons = [{'title': 'Звичайні страви', 'ref':'normal_food'},
+# food_buttons = [{'title': 'Звичайні страви', 'ref':'food_menu'},
 #                {'title': "М'ясні страви", 'ref':'meat_food'},
 #                {'title': 'Морепродукти', 'ref':'sea_food'}]
 
