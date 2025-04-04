@@ -8,7 +8,7 @@ my_profile_buttons = My_profile_Buttons.objects.all()
 nav_buttons = [{'title': 'Головна сторінка', 'ref':'main_page'},
                {'title': 'Про нас', 'ref':'about'},
                {'title': 'Зареєструватися', 'ref':'login'},
-               {'title':'Каталог Страв', 'other_buttons':food_buttons},
+               {'title':'Меню', 'other_buttons':food_buttons},
                {'title':'Мій профіль', 'other_buttons':my_profile_buttons},]
 
 

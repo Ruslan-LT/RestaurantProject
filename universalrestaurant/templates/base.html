@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <link type="text/css" href="{% static 'restaurant/css/main_page.css' %}" rel="stylesheet" />
-    {% block static %} {% endblock %}
+    {%block static%}{%endblock%}
 </head>
 <body>
     <div class="header_container">
@@ -16,12 +16,11 @@
                         <button class="main_button" data-index="{{ forloop.counter }}">{{ b.title }}</button>
                         <ul class="dropdown-menu hidden" id="dropdown-menu-{{ forloop.counter }}">
                             {% for but in b.other_buttons %}
-                            {% if but.name == "Особистий кабінет" %}
-                                <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
-                                <hr class="line">
-                            {% else %}
-                                <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
-                            {% endif %}
+                                {% if b.title == "Меню" %}
+                                    <li><a href="{% url 'food_by_category' category_slug=but.slug %}">{{ but.name }}</a></li>
+                                {% else %}
+                                    <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                     </div>

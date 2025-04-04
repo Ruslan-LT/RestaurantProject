@@ -25,6 +25,7 @@ class Dishes(models.Model):
     cooking_time = models.CharField(max_length=50, unique=False, null=True, blank=True, verbose_name='Час приготування')
     category = models.ForeignKey(to=Categories, on_delete=models.PROTECT, verbose_name='Категорія')
 
+
     class Meta:
         db_table = 'Dishes'
         verbose_name = 'Страва'

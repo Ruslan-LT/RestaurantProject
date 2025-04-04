@@ -92,7 +92,8 @@ body {
     display: inline-block;
 }
 
-.main_button, .main_button2{
+.main_button, .main_button2, .filter-button {
+    width: 115px;
     padding: 8px;
     cursor: pointer;
     background-color: black;
@@ -102,6 +103,10 @@ body {
     height: 53px;
     transition: 0.5s;
     font-size: 12px;
+}
+
+.hidden {
+    display: none;
 }
 
 #search_button{
@@ -121,21 +126,20 @@ body {
 
 }
 
-.main_button:hover, .main_button2:hover{
+.main_button:hover, .main_button2:hover, .filter-button:hover{
     transform: scale(1.05);
     background-color: white;
     color: black;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
 }
 
-.main_button:active, .main_button:active{
+.main_button:active, .main_button:active, .main_button:active{
     transform: scale(0.9);
 }
 
-.dropdown-menu {
+.dropdown-menu, .dropdown-menu2 {
     z-index: 1500;
     position: absolute;
-    top: 100%;
     left: 0;
     background-color: #333;
     color: white;

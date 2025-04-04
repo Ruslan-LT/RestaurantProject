@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.core.paginator import Paginator
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from utils.navigate_buttons import nav_buttons
-# from dishes.utils import json_format
-from dishes.models import Dishes
-
+from utils.filter_buttons import filter_buttons
+from dishes.models import Dishes, Categories
 
 def render_food_page(request, title, template_name, **kwargs):
     data = {
@@ -12,18 +12,24 @@ def render_food_page(request, title, template_name, **kwargs):
     }
     return render(request, template_name, context=data)
 
-def normal_food(request):
-    food_data = Dishes.objects.filter(category=1)
-    return render_food_page(request, 'Звичайні страви', 'food_menu/index.html', food=food_data)
+def food_by_category(request, category_slug):
+    order_by = request.GET.get('order_by',None)
+    on_sale = request.GET.get('on_sale', None)
+    page = request.GET.get('page', 1)
 
-def sea_food(request):
-    food_data = Dishes.objects.filter(category=3)
-    return render_food_page(request, 'Морські страви', 'food_menu/index.html', food=food_data)
+    category = get_object_or_404(Categories, slug=category_slug)
+    food_data = Dishes.objects.filter(category=category)
 
-def meat_food(request):
-    food_data = Dishes.objects.filter(category=2)
-    return render_food_page(request, "М'ясні страви", 'food_menu/index.html', food=food_data)
+    if on_sale:
+        food_data = food_data.filter(discount__gt=0)
+    if order_by:
+        food_data = food_data.order_by(order_by)
 
-def dish_information(request, dish_slug):
-    dish = Dishes.objects.get(slug=dish_slug)
+    paginator = Paginator(food_data, 6)
+    current_page = paginator.page(page)
+    return render_food_page(request, category.name, 'food_menu/index.html', food = current_page,
+                            slug = category_slug, filter_buttons=filter_buttons)
+
+def dish_information(request, dish_slug, category_slug):
+    dish = get_object_or_404(Dishes, slug=dish_slug)
     return render_food_page(request, dish.name, 'information/index.html', dish=dish)

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const menuButtons = document.querySelectorAll(".main_button");
+    const menuButtons = document.querySelectorAll(".main_button, .filter-button");
 
     menuButtons.forEach(button => {
         const index = button.getAttribute("data-index");
@@ -32,4 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
         let moveY = (event.clientY / window.innerHeight - 0.5) * 10;
         document.body.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
     });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButton = document.querySelector(".filter-button");
+    const dropdownMenu = document.getElementById("filter-dropdown-menu");
+
+    filterButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdownMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!filterButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add("hidden");
+        }
+    });
+
 });
