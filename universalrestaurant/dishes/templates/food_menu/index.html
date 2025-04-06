@@ -11,13 +11,15 @@
         Фільтри
     </button>
     <div class="dropdown-menu2 hidden" id="filter-dropdown-menu">
-        <form action="{% url 'food_by_category' category_slug=slug %}" method="get" class="dishes_form">
+        <form action="{% if request.GET.q %}{% url 'search' %}{% else %}{% url 'food_by_category' category_slug=slug %}{% endif %}" method="get" class="dishes_form">
             {% for but in filter_buttons %}
                 {% if but.type == 'checkbox' %}
                     <div class="but_div_cls">
                         <input name="on_sale" value="{{ but.value }}" type="{{ but.type }}" class="{{ but.inp_f_cls }}" id="{{ but.id }}"
                         {% if request.GET.on_sale == 'ON' %}checked{% endif %}>
-                        {% comment %}<input type="hidden" name="q" value="request.GET.q">{% endcomment %}
+                        {% if request.GET.q %}
+                            <input type="hidden" name="q" value=" {{ request.GET.q }}">
+                        {% endif %}
                         <label class="{{ but.inpt_lb_cls }}" for="{{ but.id }}">
                             {{ but.name }}
                         </label>

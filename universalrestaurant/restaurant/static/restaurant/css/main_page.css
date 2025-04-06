@@ -92,7 +92,7 @@ body {
     display: inline-block;
 }
 
-.main_button, .main_button2, .filter-button {
+.main_button, .main_button2, .filter-button, .main_button3 {
     width: 115px;
     padding: 8px;
     cursor: pointer;
@@ -126,14 +126,14 @@ body {
 
 }
 
-.main_button:hover, .main_button2:hover, .filter-button:hover{
+.main_button:hover, .main_button2:hover, .filter-button:hover, .main_button3:hover{
     transform: scale(1.05);
     background-color: white;
     color: black;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
 }
 
-.main_button:active, .main_button:active, .main_button:active{
+.main_button:active, .main_button:active, .main_button:active, .main_button3:active{
     transform: scale(0.9);
 }
 

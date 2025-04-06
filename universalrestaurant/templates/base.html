@@ -30,10 +30,10 @@
             {% endfor %}
         </nav>
         <nav id="naw2">
-            <label>
-                <input type="text" placeholder="Search">
-            </label>
-            <button class="main_button" style="margin: 20px">Пошук</button>
+            <form class="find_form" action="{% url 'search' %}" method="get" role="search">
+                <input type="text" placeholder="Search" name="q" aria-label="Search">
+                <button class="main_button3" style="margin: 20px" type="submit">Пошук</button>
+            </form>
         </nav>
     </div>
     {% block content %} {% endblock %}
