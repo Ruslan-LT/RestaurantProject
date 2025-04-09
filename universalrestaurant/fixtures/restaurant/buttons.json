@@ -1,0 +1,1 @@
+[{"model": "restaurant.my_profile_buttons", "pk": 1, "fields": {"name": "Вийти", "slug": "main_page"}}, {"model": "restaurant.my_profile_buttons", "pk": 2, "fields": {"name": "Мій профіль", "slug": "profile"}}, {"model": "restaurant.my_profile_buttons", "pk": 3, "fields": {"name": "Корзина", "slug": "main_page"}}]

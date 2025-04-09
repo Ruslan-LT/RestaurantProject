@@ -1,0 +1,66 @@
+body {
+      background: url('https://images.unsplash.com/photo-1593642634367-d91a135587b5') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+}
+.login-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      margin: 50px 0 0 0;
+    }
+.login-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+.login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+.login-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+.login-box button:hover {
+      background-color: #555;
+    }
+.login-box a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+.login-box .links {
+      text-align: center;
+      margin-top: 10px;
+    }
+.social-login {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+.social-login button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+    }
+.google { background-color: #db4437; }
+.facebook { background-color: #3b5998; }
+.github { background-color: #24292e; }

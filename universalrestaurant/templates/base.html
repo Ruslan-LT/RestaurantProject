@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'restaurant/css/main_page.css' %}" rel="stylesheet" />
+    {%block static%}{%endblock%}
+</head>
+<body>
+    <div class="header_container">
+        <nav class="nav">
+            {% for b in nav_buttons %}
+                {% if b.other_buttons %}
+                    <div class="menu_container">
+                        <button class="main_button" data-index="{{ forloop.counter }}">{{ b.title }}</button>
+                        <ul class="dropdown-menu hidden" id="dropdown-menu-{{ forloop.counter }}">
+                            {% for but in b.other_buttons %}
+                                {% if b.title == "Меню" %}
+                                    <li><a href="{% url 'food_by_category' category_slug=but.slug %}">{{ but.name }}</a></li>
+                                {% else %}
+                                    <li><a href="{% url but.slug %}">{{ but.name }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% else %}
+                    <a href="{% url b.ref %}"><button class="main_button2">{{ b.title }}</button></a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+        <nav id="naw2">
+            <form class="find_form" action="{% url 'search' %}" method="get" role="search">
+                <input type="text" placeholder="Search" name="q" aria-label="Search">
+                <button class="main_button3" style="margin: 20px" type="submit">Пошук</button>
+            </form>
+        </nav>
+    </div>
+    {% block content %} {% endblock %}
+    {% block footer %} {% endblock %}
+    <script src="{% static 'restaurant/js/main_page.js' %}"></script>
+</body>
+</html>
+
+

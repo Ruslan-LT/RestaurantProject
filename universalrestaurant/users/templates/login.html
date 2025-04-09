@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static %}
+<link type="text/css" href="{% static 'css/authorisation.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+<div class="login-box">
+    <h2>Авторизація</h2>
+    <form action="{% url 'login' %}" method="post">
+        <input type="text" placeholder="Введіть ваше ім'я користувача" />
+        <input type="password" placeholder="Введіть пароль" />
+        <button>Увійти</button>
+        <div class="links">
+          <a href="#">Забули пароль?</a> | <a href="{% url 'registration' %}">Створити аккаунт</a>
+        </div>
+    </form>
+    <p style="text-align:center; margin-top: 20px;">Або авторизуйтеся через:</p>
+    <div class="social-login">
+      <button class="google">G Google</button>
+      <button class="facebook">Facebook</button>
+      <button class="github">GitHub</button>
+    </div>
+  </div>
+{% endblock %}
