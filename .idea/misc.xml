@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Black">
+<<<<<<< HEAD
     <option name="sdkName" value="Python 3.12 (Restaurant)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (RestaurantProject)" project-jdk-type="Python SDK" />
+=======
+    <option name="sdkName" value="Python 3.13 (RestaurantProject) (2)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (RestaurantProject) (2)" project-jdk-type="Python SDK" />
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 </project>

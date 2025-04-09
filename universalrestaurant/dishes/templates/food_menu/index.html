@@ -54,8 +54,13 @@
                 <img class="dish_img" src="{% static 'img/img_not_found.jpg' %}" alt="Зображення не знайдено">
             {% endif %}
                  <div class="card-body">
+<<<<<<< HEAD
                      <a href="{% url 'dish_information' category_slug=fd.category.slug dish_slug=fd.slug %}" class="card-title">{% autoescape off %}{% if fd.headline %}{{ fd.headline }}{% else %}{{ fd.name }}{% endif %}{% endautoescape off %}</a>
                      <p class="card-text">{% autoescape off %}{% if fd.bodyline %}{{ fd.bodyline|truncatechars:90 }}{% else %}{{ fd.description|truncatechars:90 }}{% endif %}{% endautoescape off %}</p>
+=======
+                     <a href="{% url 'dish_information' category_slug=fd.category.slug dish_slug=fd.slug %}" class="card-title">{{ fd.name }}</a>
+                     <p class="card-text">{{ fd.description|truncatechars:90 }}</p>
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
                      {% if fd.discount %}
                          <p class="price"><span class="old-price">{{ fd.price }} </span><strong>{{ fd.sell_price }} грн</strong></p>
                      {% else %}

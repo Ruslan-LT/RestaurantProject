@@ -15,8 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+<<<<<<< HEAD
 from restaurant.views import page_not_found
 from restaurant import views
+=======
+from django.urls import path, include
+from django.views.defaults import page_not_found
+from restaurant.views import page_not_found
+from restaurant import views
+from restaurant import urls
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 from django.urls import include, path
 from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf.urls.static import static
@@ -27,8 +35,13 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('main_page/', views.main_page, name='main_page'),
     path('about/', views.about, name='about'),
+<<<<<<< HEAD
     path('main_page/', include('dishes.urls')),
     path('user/', include('users.urls')),
+=======
+    path('login/', views.login, name='login'),
+    path('main_page/', include('dishes.urls'))
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 ]
 
 if settings.DEBUG:

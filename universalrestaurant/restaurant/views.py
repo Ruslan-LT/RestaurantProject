@@ -19,6 +19,12 @@ def about(request):
 def main_page(request):
     return return_page(request, 'Головна сторінка',"main_page/index.html")
 
+<<<<<<< HEAD
+=======
+def login(request):
+    return return_page(request,'Логін', 'login/index.html')
+
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 
 def page_not_found(request, exception):
     return HttpResponseNotFound("<h1>Сторінку не знайдено 😕</h1>")

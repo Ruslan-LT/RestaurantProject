@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+<<<<<<< HEAD
 from django.conf.global_settings import STATICFILES_DIRS, AUTH_USER_MODEL
+=======
+from django.conf.global_settings import STATICFILES_DIRS
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,14 +43,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'django.contrib.postgres',
+=======
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 
     'django_extensions',
     "debug_toolbar",
 
     'restaurant.apps.RestaurantConfig',
     'dishes.apps.DishesConfig',
+<<<<<<< HEAD
     'users.apps.UsersConfig',
+=======
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
 ]
 
 MIDDLEWARE = [
@@ -88,12 +98,17 @@ WSGI_APPLICATION = 'universalrestaurant.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'MyRestaurantDB',
         'USER': 'RuslanJT',
         'PASSWORD': 'Ruslan1606',
         'HOST': 'localhost',
         'PORT': 5432,
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
     }
 }
 
@@ -150,4 +165,7 @@ INTERNAL_IPS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
 AUTH_USER_MODEL= 'users.User'
+=======
+>>>>>>> 2bcde29b6c4e3882e13e228b684f1ed14d675d38
