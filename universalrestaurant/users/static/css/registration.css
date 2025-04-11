@@ -1,0 +1,54 @@
+body {
+      background: url('https://images.unsplash.com/photo-1593642634367-d91a135587b5') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+}
+.register-box {
+      background-color: rgba(255, 255, 255, 0.97);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      width: 100%;
+      margin: 50px 0 0 0;
+}
+.register-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+}
+.form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+}
+.form-grid label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+}
+.form-grid input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+}
+.register-button {
+      grid-column: span 2;
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+}
+.register-button:hover {
+      background-color: #555;
+}

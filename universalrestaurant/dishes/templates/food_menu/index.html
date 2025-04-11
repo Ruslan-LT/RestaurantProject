@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load dish_tags %}
+{% load static %}
+{% block static %}
+<link type="text/css" href="{% static 'css/dishes_pages.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="left_div">
+    <button class="filter-button">
+        Фільтри
+    </button>
+    <div class="dropdown-menu2 hidden" id="filter-dropdown-menu">
+        <form action="{% if request.GET.q %}{% url 'search' %}{% else %}{% url 'food_by_category' category_slug=slug %}{% endif %}" method="get" class="dishes_form">
+            {% for but in filter_buttons %}
+                {% if but.type == 'checkbox' %}
+                    <div class="but_div_cls">
+                        <input name="on_sale" value="{{ but.value }}" type="{{ but.type }}" class="{{ but.inp_f_cls }}" id="{{ but.id }}"
+                        {% if request.GET.on_sale == 'ON' %}checked{% endif %}>
+                        {% if request.GET.q %}
+                            <input type="hidden" name="q" value=" {{ request.GET.q }}">
+                        {% endif %}
+                        <label class="{{ but.inpt_lb_cls }}" for="{{ but.id }}">
+                            {{ but.name }}
+                        </label>
+                        <p class="sort">Сортувати: </p>
+                    </div>
+                {% else %}
+                    <div class="but_div_cls">
+                        <input name="{{ but.name_inp }}" value="{{ but.value }}" type="{{ but.type }}" class="{{ but.inp_f_cls }}" id="{{ but.id }}" {% if request.GET.order_by == '-price' and but.name == 'Від дорогих до дешевих' or request.GET.order_by == 'price' and but.name == 'Від дешевих до дорогих' %} checked {% endif %}>
+                        <label class="{{ but.inpt_lb_cls }}" for="{{ but.id }}">
+                            {{ but.name }}
+                        </label>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="submit_button">Застосувати</button>
+        </form>
+    </div>
+</div>
+    <div class="main_container">
+        {% for fd in food %}
+        <div class="card">
+            {% if fd.discount %}
+                {% if fd.discount < 30 %}
+                    <span class="badge">Знижка {{ fd.discount }}%</span>
+                {% else %}
+                    <span class="badge2">Знижка {{ fd.discount }}%</span>
+                {% endif %}
+            {% endif %}
+            {% if fd.image %}
+                <img class="dish_img" src="{{ fd.image.url }}" alt="{{ fd.name }}">
+            {% else %}
+                <img class="dish_img" src="{% static 'img/img_not_found.jpg' %}" alt="Зображення не знайдено">
+            {% endif %}
+                 <div class="card-body">
+                     <a href="{% url 'dish_information' category_slug=fd.category.slug dish_slug=fd.slug %}" class="card-title">{% autoescape off %}{% if fd.headline %}{{ fd.headline }}{% else %}{{ fd.name }}{% endif %}{% endautoescape off %}</a>
+                     <p class="card-text">{% autoescape off %}{% if fd.bodyline %}{{ fd.bodyline|truncatechars:90 }}{% else %}{{ fd.description|truncatechars:90 }}{% endif %}{% endautoescape off %}</p>
+                     {% if fd.discount %}
+                         <p class="price"><span class="old-price">{{ fd.price }} </span><strong>{{ fd.sell_price }} грн</strong></p>
+                     {% else %}
+                        <p class="price"><strong>{{ fd.price }} грн</strong></p>
+                     {% endif %}
+                     <img class="cart-icon" src="{% static  'img/add_to_cart.png' %}" alt="Добавити до корзини">
+                 </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<footer>
+    <nav class="footer_nav">
+    <ul class="nav-list">
+        <div class="Pag_div">
+            <li class="nav-item">
+                <a href="{% if food.has_previous %}?{% url_params page=food.previous_page_number %}{% else %}#{% endif %}" class="nav-link{% if not food.has_previous %}-disabled{% endif %}">Previous</a>
+            </li>
+            {% for page in food.paginator.page_range %}
+                {% if page >= food.number|add:-2 and page <= food.number|add:2 %}
+                    <li class="nav-item">
+                        <a href="?{% url_params page=page %}" class="nav-link">{{ page }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            <li class="nav-item">
+                <a href="{% if food.has_next %}?{% url_params page=food.next_page_number %}{% else %}#{% endif %}" class="nav-link{% if not food.has_next %}-disabled{% endif %}">Next</a>
+            </li>
+        </div>
+    </ul>
+</nav>
+</footer>
+{% endblock %}
