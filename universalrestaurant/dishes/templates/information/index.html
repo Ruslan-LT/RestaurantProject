@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static %}
+<link type="text/css" href="{% static 'css/dishes_info.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+<div class="main_container" >
+    <div class="product-card">
+        <div class="first-card-container">
+            <div class="product-image">
+                <img src="{{ dish.image.url }}" alt="{{ dish.name }}">
+            </div>
+            <div class="product-info">
+                <h2 class="product-title">{{ dish.name }}</h2>
+                {% if dish.discount %}
+                <p class="product-price">Ціна: <strong>{{ dish.sell_price }} грн</strong></p>
+                {% else %}
+                <p class="product-price">Ціна: <strong>{{ dish.price }} грн</strong></p>
+                {% endif %}
+                <p class="product-description">{{ dish.description }}</p>
+                <p>Інгрідієнти: {{ dish.compound }}</p>
+                <p>Час приготування: {{dish.cooking_time}}</p>
+                <a href="{% url 'cart_add' %}" class="add-to-cart">{% csrf_token %}<button class="add-to-cart">Додати до корзини</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

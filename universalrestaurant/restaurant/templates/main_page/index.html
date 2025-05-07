@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div id="cartModal" class="modal">
+  {% include 'includes/include_cart.html' %}
+</div>
+<div class="main_page_div">
+    <div class="stars">
+        {% for i in "12345" %}
+            <div class="star" id="star{{ forloop.counter }}">☆</div>
+        {% endfor %}
+    </div>
+    <div class="main_content">
+        <b>Ресторан <span id="UR">UniversalRestaurant</span></b>
+    </div>
+    <div class="left_div">
+        {% include 'includes/include_button.html' %}
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+    <footer class="main_page_footer">
+        Copyright &nbsp;©&nbsp; <i>Litvinov Ruslan</i> &nbsp;2025
+    </footer>
+{% endblock %}

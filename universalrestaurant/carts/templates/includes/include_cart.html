@@ -1,0 +1,46 @@
+{% load static %}
+{% load cart_tags %}
+{% user_carts request as carts %}
+<div class="modal-content" id="modal_content">
+    <span class="close" id="closeModalBtn">&times;</span>
+      <hr class="cart_hr">
+     <div class="title_cnt">
+        <h2>Корзина</h2>
+     </div>
+      <div class="goods_div">
+          {% for cart in carts %}
+              <div class="goods_title">
+                  <h3 style="margin: 0; padding: 10px">{{ cart.dish.name }}</h3>
+              </div>
+              <div class="total_goods">
+                  <div style="display: flex; flex-direction: row; align-items: center; gap: 5px" class="input-group">
+
+
+                      <button class="add_div" data-cart-id="{{ cart.id }}" data-cart-change-url="{% url 'cart_change' %}">{% csrf_token %}+</button>
+
+
+
+                      <label for="goods_count" style="display: none"></label>
+                      <input type="text" id="goods_count" style="width: 45px; height: 25px;" value="{{ cart.quantity }}" class="number" readonly>
+
+
+
+                      <button class="sub_div" data-cart-id="{{ cart.id }}" data-cart-change-url="{% url 'cart_change' %}">{% csrf_token %}-</button>
+
+
+                  </div>
+                  <p> {{ cart.dish.sell_price }} ₴</p>
+                  <p>=</p>
+                  <p> {{ cart.product_price }} ₴</p>
+                  <a href="{% url  'cart_remove' %}" class="remove_from_cart" data-cart-id="{{cart.id}}">{% csrf_token %}<i class='bx bx-trash' style='color:#c3a624; font-size: 20px'  ></i></a>
+              </div>
+          {% endfor %}
+      </div>
+      <div class="total_div">
+          <p>Разом <span style="font-weight: bold">{{ carts.total_quantity }}</span> страв(а) на сумму</p>
+          <h1 style="font-weight: bold">{{ carts.total_price }} ₴</h1>
+      </div>
+      <div id="but_div">
+         <button>Оформити замовлення</button>
+      </div>
+  </div>

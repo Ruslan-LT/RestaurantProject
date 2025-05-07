@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static %}
+<link type="text/css" href="{% static 'css/registration.css' %}" rel="stylesheet" />
+{% endblock %}
+{% block content %}
+ <div class="register-box">
+    <h2>Реєстрація</h2>
+    <form class="form-grid" action="{% url 'registration' %}" method="post">
+      {% csrf_token %}
+      <div>
+        <label for="id_first_name">Ім'я*</label>
+        <input type="text" id="id_first_name" name="first_name" placeholder="Введіть ваше Ім'я" required
+        value="{% if form.first_name.value %}{{form.first_name.value}}{% endif %}">
+        {% if form.first_name.errors %}
+        <div style="color: red">{{ first_name.errors }}</div>
+        {% endif %}
+      </div>
+      <div>
+        <label for="id_last_name">Фамілія*</label>
+        <input id="id_last_name" name="last_name" type="text" placeholder="Введіть вашу фамілію" required
+        value="{% if  form.last_name.value %}{{form.last_name.value}}{% endif %}">
+        {% if form.last_name.errors %}
+        <div style="color: red">{{ last_name.errors }}</div>
+        {% endif %}
+      </div>
+      <div>
+        <label for="id_username">Ім'я користувача*</label>
+        <input id="id_username" name="username" type="text" placeholder="Введіть ваше ім'я користувача" required
+               value="{% if  form.username.value %}{{form.username.value}}{% endif %}">
+        {% if form.username.errors %}
+        <div style="color: red">{{ username.errors }}</div>
+        {% endif %}
+      </div>
+      <div>
+        <label for="id_email">Email*</label>
+        <input id="id_email" name="email" type="email" placeholder="Введіть ваш email" required
+               value="{% if  form.email.value %}{{form.email.value}}{% endif %}">
+        {% if form.email.errors %}
+        <div style="color: red">{{ email.errors }}</div>
+        {% endif %}
+      </div>
+      <div>
+        <label for="id_password_1">Пароль*</label>
+        <input id="id_password_1" name="password1" type="password" placeholder="Введіть пароль" required
+        value="{% if  form.password1.value %}{{form.password1.value}}{% endif %}">
+        {% if form.password1.errors %}
+        <div style="color: red">{{ password1.errors }}</div>
+        {% endif %}
+      </div>
+      <div>
+        <label for="id_password_2">Підтвердження пароля*</label>
+        <input id="id_password_2" name="password2" type="password" placeholder="Підтвердіть пароль" required
+        value="{% if  form.password2.value %}{{form.password2.value}}{% endif %}">
+        {% if form.password2.errors %}
+        <div style="color: red">{{ password2.errors }}</div>
+        {% endif %}
+      </div>
+      <button class="register-button" type="submit">Зареєструватися</button>
+    </form>
+  </div>
+{% endblock %}

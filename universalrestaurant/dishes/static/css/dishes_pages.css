@@ -1,0 +1,219 @@
+.main_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 65%;
+    margin: 10px auto;
+}
+
+
+.left_item_div{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    gap: 30px;
+}
+
+.filter-button{
+    position: relative;
+}
+
+.card_container {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 23px;
+}
+
+.but_div_cls{
+    background-color: black;
+    margin: 10px 10px 10px 10px;
+}
+
+.sort{
+    margin: 10px;
+}
+
+
+.dishes_form{
+    background-color: black;
+}
+
+.submit_button{
+    margin: 10px 60px 10px 60px;
+    color:white;
+    background-color: black;
+    border-radius: 15px;
+    border: 2px solid white;
+    transition: 0.5s;
+}
+
+.submit_button:hover{
+    transform: scale(1.1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+.left_div{
+    width: 35%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    gap: 30px
+
+}
+.card {
+    width: 250px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.Pag_div{
+    background: black;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+.footer_nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+
+
+.nav-link,  .nav-link-disabled{
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link{
+    color: white;
+    border: 1px solid white;
+
+}
+
+.nav-link-disabled{
+    pointer-events: none;
+    color: grey;
+    border: 1px solid grey;
+}
+
+.nav-link:hover {
+    background-color: white;
+    color: black;
+}
+
+
+.card:hover{
+    box-shadow: 3px 3px 3px 3px rgba(255, 255, 0, 0.5);
+    transform: scale(1.04);
+}
+.dish_img {
+    width: 100%;
+    height: 160px;
+}
+.badge, .badge2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.badge{
+    background: gold;
+}
+
+.badge2{
+    background: crimson;
+}
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+.card-text {
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+        }
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+}
+
+.cart-icon:hover{
+    border: 1px solid green;
+    border-radius: 15px;
+}
+
+.icon_div{
+    display: flex;
+    height: 70px;
+    justify-content: start;
+    padding: 10px;
+}
+
+.header_background{
+    padding: 50px;
+}
+

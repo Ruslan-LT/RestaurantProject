@@ -1,0 +1,7 @@
+
+{% load static %}
+{% load cart_tags %}
+{% user_carts request as carts %}
+<div class="cart_div" id="openCartBtn">
+    <i class='bx bxs-basket' style='color:#ffffff; font-size: 20px'  ></i><span style="color: white; font-size: 20px" id="goods-in-cart-count">{% if carts %}{{carts.total_quantity}}{% endif %}</span>
+</div>

@@ -1,0 +1,11 @@
+.main_cart_div{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(5,100px);
+}
+
+.cart_cont{
+    grid-column: 2/9;
+    grid-row: 2/6;
+    background: white;
+}

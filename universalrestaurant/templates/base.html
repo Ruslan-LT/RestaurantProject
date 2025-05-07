@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'restaurant/css/main_page.css' %}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {%block static%}{%endblock%}
+</head>
+<body>
+    <div class="header_container">
+       <nav class="nav">
+           <a href="{% url nav_buttons.main_but.ref %}"><button class="main_button2">{{ nav_buttons.main_but.title }}</button></a>
+           <a href="{% url nav_buttons.about_but.ref %}"><button class="main_button2">{{ nav_buttons.about_but.title }}</button></a>
+           <div class="menu_container">
+               <button class="main_button" data-index="3">{{nav_buttons.menu_but.title}}</button>
+               <ul class="dropdown-menu hidden" style="z-index: 10" id="dropdown-menu-3">
+                   {% for b in nav_buttons.menu_but.other_buttons %}
+                   <li style="z-index: 10" ><a href="{% url 'food_by_category' category_slug=b.slug %}" >{{ b.name }}</a></li>
+                   {% endfor %}
+               </ul>
+           </div>
+           {% if user.is_authenticated %}
+           <div class="menu_container">
+               <button class="main_button" data-index="4">{{ nav_buttons.profile_but.title }}</button>
+               <ul class="dropdown-menu hidden"  id="dropdown-menu-4">
+                   {% for b in nav_buttons.profile_but.other_buttons %}
+                   <li><a href="{% url b.slug %}">{{ b.name }}</a></li>
+                   {% endfor %}
+               </ul>
+           </div>
+           <div class="menu_container" id="username" style="margin: 30px"><p style="color:white">{{ user.username }}</p><i class='bx bx-user' style='color:#ffffff; font-size: 20px'  ></i></div>
+           {% endif %}
+           {% if not user.is_authenticated %}
+           <a href="{% url nav_buttons.login_but.ref %}"><button class="main_button2">{{ nav_buttons.login_but.title }}</button></a>
+           {% endif %}
+        </nav>
+        <nav id="naw2">
+            <form class="find_form" action="{% url 'search' %}" method="get" role="search">
+                <input class="find_food" type="text" placeholder="Search" name="q" aria-label="Search">
+                <button class="main_button3" style="margin: 20px" type="submit">Пошук</button>
+            </form>
+        </nav>
+    </div>
+    <div class="header_background">p
+    </div>
+    {% block content %} {% endblock %}
+    {% block footer %} {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="{% static 'restaurant/js/cart.js' %}"></script>
+    <script src="{% static 'restaurant/js/main_page.js' %}"></script>
+</body>
+</html>
+
+

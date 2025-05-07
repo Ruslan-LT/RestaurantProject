@@ -1,0 +1,26 @@
+[
+  {
+    "model": "dishes.categories",
+    "pk": 1,
+    "fields": {
+      "name": "Вегетеріанські страви",
+      "slug": "normal_food"
+    }
+  },
+  {
+    "model": "dishes.categories",
+    "pk": 2,
+    "fields": {
+      "name": "м'ясні страви",
+      "slug": "meat_food"
+    }
+  },
+  {
+    "model": "dishes.categories",
+    "pk": 3,
+    "fields": {
+      "name": "Морські страви",
+      "slug": "sea_food"
+    }
+  }
+]

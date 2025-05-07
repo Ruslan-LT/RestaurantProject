@@ -1,0 +1,189 @@
+body{
+    display: flex;
+}
+.main_div{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.profile_div{
+    display: flex;
+    width:49%;
+    height:auto;
+    margin-top: 20px;
+    justify-content: end;
+}
+
+.cart_container{
+    display: flex;
+    width:49%;
+    margin-top: 20px;
+}
+
+.profile_form{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 30px;
+    opacity: 0.9;
+    width:70%;
+    height:auto;
+    border-radius: 15px;
+    padding: 15px;
+    background: white;
+    margin-top: 80px;
+    box-shadow: 30px 100px 200px rgba(0, 0, 0, 0.7);
+
+}
+.profile_form{
+    justify-content: center;
+}
+
+.cart_form{
+    flex-direction: column;
+    height: 180px;
+}
+
+.title_div{
+    display: flex;
+    justify-content: center;
+}
+
+.img_div{
+    width: 90%;
+    height: max(150px);
+}
+
+.form_title{
+    text-align: center;
+    margin: 30px 0 30px 0;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.img_div{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: auto;
+    justify-content: center;
+}
+
+
+.user_img{
+    width: 170px;
+    height: auto;
+    margin: 20px 100px 20px 100px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.user_img:hover{
+    transform: scale(1.1);
+}
+
+.input_div{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    gap: 10px;
+}
+
+.input_div > input{
+    outline: none;
+    border: 2px solid rgb(37, 198, 198);
+    border-radius: 40px;
+    height:40px;
+    padding: 0 20px;
+}
+
+.input_div > input:focus {
+    border: 2px solid rgb(37, 198, 198);
+    box-shadow: 0 8px 20px rgba(37, 198, 198, 0.5);
+    transition: 0.3s;
+}
+
+.input_lbls_div > .but_div{
+    display: flex;
+    justify-content: center;
+}
+
+.input_lbls_div > .but_div > button{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.input_lbls_div > .but_div > button:hover{
+    transform: scale(1.1);
+}
+
+.cart_container>.cart_form>button{
+    padding: 10px;
+    width: 250px;
+    color: white;
+    background-color: black;
+    margin: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: none;
+    transition: 0.5s;
+}
+
+.cart_container>.cart_form>button:hover{
+    transform: scale(1.05);
+}
+
+.modal-content {
+    margin: 0;
+    background-color: #f8f5f5;
+    margin-left: 30px;
+    margin-top: 80px;
+    border-radius: 8px;
+     width:70%;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+    padding: 20px;
+}
+
+#closeModalBtn{
+    display: none;
+}
+
+.title_cnt{
+    display: flex;
+    justify-content: center;
+}
+
+.cart_hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#but_div{
+    display: flex;
+    justify-content: start;
+}
+
+#but_div > button{
+    display: inline-block;
+    width: 40%;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+
+}
+
+#but_div > button:hover{
+    transform: scale(1.1);
+}
+

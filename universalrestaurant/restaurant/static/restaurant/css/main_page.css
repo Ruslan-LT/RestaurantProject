@@ -1,0 +1,471 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("/static/restaurant/img/rest.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    transition: background-position 0.1s ease-out;
+}
+
+.nav_div {
+    color: white;
+    margin: 8px;
+    padding: 16px;
+    border-radius: 15px;
+    border: 2px solid white;
+    transition: 0.5s;
+    font-size: 13px;
+}
+
+
+
+.nav_div:hover {
+    transform: scale(1.05);
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+.nav_a:hover{
+    color: black;
+}
+
+
+.nav_div:active {
+    transform: scale(0.9);
+}
+
+.nav_a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav_div:hover .nav_a{
+    color: black;
+}
+
+.header_container {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 98%;
+    background-color: black;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.header_background{
+    height: 100px;
+    padding: 20px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.food_ch_lbl {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.select_food_div{
+    border-radius: 15px;
+    border: white solid 2px;
+    width: 20%;
+}
+
+#food_choise {
+    display: none;
+}
+
+.menu_container {
+    position: relative;
+    display: inline-block;
+}
+
+.main_button, .main_button2, .filter-button, .main_button3 {
+    width: 115px;
+    padding: 8px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    height: 53px;
+    transition: 0.5s;
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+#search_button{
+    width: 20%;
+}
+
+.line{
+    margin: 0;
+
+}
+
+#naw2{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.main_button:hover, .main_button2:hover, .filter-button:hover, .main_button3:hover{
+    transform: scale(1.05);
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.main_button:active, .main_button:active, .main_button:active, .main_button3:active{
+    transform: scale(0.9);
+}
+
+.dropdown-menu, .dropdown-menu2 {
+    z-index: 1500;
+    position: absolute;
+    left: 0;
+    background-color: #333;
+    color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 150px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border: 3px solid white;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    background-color: black;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-menu li:hover {
+    background-color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+.main_page_footer {
+    display: flex;
+    height: 80px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    color: white;
+}
+
+#UR{
+    transition: 0.5s;
+}
+
+#UR:hover{
+    -webkit-text-stroke: 2px yellow;
+     text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.7)
+}
+.star{
+    opacity: 0;
+    width: 5%;
+    color: yellow;
+    font-size: 32px;
+    animation: Opacity_animation 2s ease-in-out;
+}
+
+#star1{
+    grid-row: 4;
+    grid-column: 1;
+
+    animation-delay: 0.4s;
+}
+
+#star2{
+    grid-row: 3;
+    grid-column: 3;
+    animation-delay: 0.8s;
+}
+
+#star3{
+    grid-row: 2;
+    grid-column: 5;
+    animation-delay: 1.2s;
+}
+
+#star4{
+    grid-row: 3;
+    grid-column: 7;
+    animation-delay: 1.6s;
+}
+
+#star5{
+    grid-row: 4;
+    grid-column: 9;
+    animation-delay: 2s;
+}
+
+
+@keyframes Opacity_animation {
+    0%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 1;
+        text-shadow: 1px 1px 10px rgba(255, 255, 0, 0.5)
+    }
+    60%{
+        opacity: 1;
+        text-shadow: 1px 1px 10px rgba(255, 255, 0, 0.5)
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+.About_page_div{
+    display: grid;
+    grid-template-columns: repeat(6, 250px);
+    grid-template-rows: repeat(6, 100px);
+
+}
+
+.about_p_title_content{
+    display: flex;
+    grid-row: 2/5;
+    grid-column: 2/5;
+    background: white;
+    border: 3px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 200px rgba(0, 0, 0, 0.7);
+    justify-content: center;
+}
+
+.content_div{
+    width: 700px;
+    height: 250px;
+    margin: 20px;
+}
+.main_page_div{
+    display: grid;
+    grid-template-rows: repeat(4, 140px);
+    grid-template-columns: repeat(5, 255px);
+}
+
+.main_content {
+    grid-row: 2/3;
+    grid-column: 2/5;
+    font-size: 2.7rem;
+    color: white;
+    font-weight: bold;
+    -webkit-text-stroke: 2px black;
+}
+
+.title_about{
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.stars{
+    grid-row: 1;
+    grid-column: 3/5;
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+}
+
+.find_food{
+    outline:none;
+    border:2px solid green;
+    border-radius: 40px;
+    height: 30px;
+    padding: 0 20px;
+    transition: 0.5s;
+}
+
+.left_div{
+    grid-column: 1/2;
+    grid-row: 1/5;
+    padding: 20px;
+}
+
+.find_food:focus {
+    box-shadow: 0 5px 8px rgb(0, 253, 75);
+}
+
+.cart_div{
+    display: flex;
+    width:90px;
+    height:45px;
+    border-radius: 10px;
+    background: black;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    transition: 0.5s;
+}
+
+.cart_div:hover{
+    transform: scale(1.1);
+}
+
+#username{
+    display: flex;
+    align-items: center;
+    gap:15px
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #f8f5f5;
+  margin: 10% auto;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+    padding: 20px;
+}
+
+.close {
+  position: absolute;
+  right: 0.5px;
+    top:0.5px;
+  font-size: 24px;
+  cursor: pointer;
+    padding: 17px;
+    border-radius: 8px;
+}
+
+.close:hover{
+    background: red;
+    color: white;
+}
+
+.title_cnt{
+    display: flex;
+    justify-content: center;
+}
+
+.cart_hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#but_div{
+    display: flex;
+    justify-content: start;
+}
+
+#but_div > button{
+    display: inline-block;
+    width: 40%;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+
+}
+
+#but_div > button:hover{
+    transform: scale(1.1);
+}
+
+.total_div{
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px 0
+}
+
+
+.goods_div{
+    border:1px solid grey;
+    border-radius:5px ;
+}
+
+.goods_title{
+    width: 100%;
+    background-color: #f1ebeb;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+}
+.add_div, .sub_div{
+    display: flex;
+    width:25px;
+    height:25px;
+    padding: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.add_div:hover, .sub_div:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.add_div:active, .sub_div:active{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.total_goods{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total_goods>i:hover{
+    cursor: pointer;
+}
