@@ -68,7 +68,20 @@
     transition: 0.5s;
 }
 
-.add-to-cart:hover{
-    transform: scale(1.1);
 
+.but_div{
+    display: flex;
+    grid-area: 2/2/4/5;
 }
+
+.add_but_div{
+    display: inline;
+    background-color: black;
+    width: 45px;
+    height: 55px;
+}
+
+.product-info>a{
+    text-decoration: none;
+}
+
