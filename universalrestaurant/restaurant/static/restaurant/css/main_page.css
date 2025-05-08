@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -468,4 +473,23 @@ body {
 
 .total_goods>i:hover{
     cursor: pointer;
+}
+
+@keyframes MoveFooter {
+    0%{ opacity: 0;
+        transform: translateX(-500px);
+    }
+    35%{
+        opacity: 1;
+    }
+    75%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: scale(1.2);
+    }
+}
+
+.footer_tilte{
+    animation: MoveFooter 1.5s ease-out forwards;
 }

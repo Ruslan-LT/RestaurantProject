@@ -1,4 +1,9 @@
+
+
 from django.db import models
+from django.urls import reverse
+
+
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Назва')
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
@@ -35,6 +40,8 @@ class Dishes(models.Model):
             return round(self.price - self.price * (self.discount/100), 2)
         return self.price
 
+    def get_absolute_url(self):
+        return reverse('dish_information', kwargs={"dish_slug":self.slug, 'category_slug':self.category.slug},)
 
     def __str__(self):
         return self.name

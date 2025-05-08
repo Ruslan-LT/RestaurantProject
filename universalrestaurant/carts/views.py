@@ -1,14 +1,11 @@
 from itertools import product
-
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
-
 from carts.models import Cart
 from carts.utils import get_user_carts
 from dishes.models import Dishes
 from django.template.loader import render_to_string
-
 from dishes.templatetags.dish_tags import register
 
 
@@ -42,9 +39,6 @@ def cart_add(request):
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string('includes/include_cart.html', {'cart': user_cart}, request=request)
     return JsonResponse({'cartModal': cart_items_html})
-
-
-
 
 
 @require_POST
