@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static %}
+<link rel="stylesheet" type="text/css" href="{% static 'create_order.css' %}">
+{% endblock %}
+{% block content %}
+<div class="main_order_div">
+    <div class="order_modal">
+        <div class="order_title_div">
+            <h2>Вибрані товари</h2>
+        </div>
+        <div id="cartModal" class="cart_modal">
+        {% include 'includes/include_cart.html' %}
+        </div>
+        <h2>Деталі замовлення</h2>
+        <div class="details">
+            <div class="first_last_name_div">
+                <div class="first_name">
+                    <label for="fist_name">Ім'я*:</label>
+                    <input id="fist_name" type="text">
+                </div>
+                <div class="last_name">
+                    <label for="last_name">Фамілія*:</label>
+                    <input id="last_name" type="text">
+                </div>
+            </div>
+            <div class="phone_number">
+                <label for="phone_number">Номер телефону*:</label>
+                <input id="phone_number" type="text" placeholder="У форматі +380-ХХХ-ХХХХ-ХХХ">
+            </div>
+            <div class="delivery">
+                <input type="checkbox" id="delivery_check">
+                <label for="delivery_check">Потрібна доставка</label>
+                <div class="adress_div">
+                    <label for="adress" style="margin-top: 20px">Адреса замовлення:</label>
+                    <input type="text" id="adress" placeholder="У форматі місто вулиця квартира/будинок">
+                </div>
+            </div>
+            <div class="payment">
+                Спосіб оплати:
+                <label>
+                <input type="radio" name="payment" value="card" checked>
+                Картою</label>
+                <label>
+                <input type="radio" name="payment" value="card/money after" >
+                Картою/готівкою при отриманні
+                </label>
+            </div>
+            <button>Оформити замовлення</button>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

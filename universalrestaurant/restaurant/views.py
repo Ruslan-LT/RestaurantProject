@@ -1,6 +1,5 @@
 from django.http import HttpResponseNotFound
 from django.shortcuts import render
-
 from utils.navigate_buttons import nav_buttons
 
 

@@ -1,7 +1,5 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from unicodedata import category
-
 from utils.navigate_buttons import nav_buttons
 from utils.filter_buttons import filter_buttons
 from dishes.models import Dishes, Categories
@@ -21,10 +19,6 @@ def food_by_category(request, category_slug=None):
     on_sale = request.GET.get('on_sale', None)
     page = request.GET.get('page', 1)
     query = request.GET.get('q', None)
-
-
-    page_name = None
-
     if query:
         food_data = q_serarch(query)
         page_name = 'Результати пошуку'
@@ -35,8 +29,6 @@ def food_by_category(request, category_slug=None):
     else:
         food_data = Dishes.objects.all()
         page_name = 'Усі страви'
-
-
     if on_sale:
         food_data = food_data.filter(discount__gt=0)
     if order_by:

@@ -22,7 +22,6 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf.urls.static import static
 from universalrestaurant import settings
 
-
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('main_page/', views.main_page, name='main_page'),
@@ -30,11 +29,11 @@ urlpatterns = [
     path('main_page/', include('dishes.urls')),
     path('user/', include('users.urls')),
     path('cart/', include('carts.urls')),
+    path('orders/', include('orders.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns +=  debug_toolbar_urls()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
 handler404 = page_not_found

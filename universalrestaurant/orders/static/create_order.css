@@ -1,0 +1,137 @@
+.main_order_div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order_modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    background-color: #f8f5f5;
+    opacity: 0.95;
+    border-radius: 15px;
+    padding: 30px;
+    gap: 10px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+#but_div{
+    display: none;
+}
+
+.modal-content{
+    margin: 0;
+    width: 100%;
+}
+
+#closeModalBtn{
+    display: none;
+}
+
+.title_cnt{
+    display: none;
+}
+
+.order_title_div{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content{
+    position: static;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.first_last_name_div{
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    gap: 30px;
+}
+.first_name, .last_name, .phone_number, .delivery, .adress_div, .payment{
+    display: flex;
+    width: 45%;
+    flex-direction: column;
+    justify-content: start;
+    gap:15px
+}
+
+.adress_div{
+    display: none;
+}
+.payment{
+    width: 90%;
+    flex-direction: row;
+}
+
+#delivery_check:checked ~ .adress_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery{
+    width: 90%;
+    position: relative;
+}
+
+.first_name>input, .last_name>input, .phone_number>input, .adress_div>input{
+    width:70%;
+    height:30px;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 0 20px;
+
+}
+
+.adress_div>input{
+    width: 78%;
+}
+
+.delivery_radiobuttons{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.cart_modal{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#delivery_check{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left:150px
+}
+
+.details > button{
+    width: 35%;
+    height: 35px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: #1b1b1b;
+    transition: 0.5s;
+ }
+.details > button:hover{
+    transform: scale(1.05);
+}

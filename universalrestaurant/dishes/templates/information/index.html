@@ -26,7 +26,6 @@
                 <p class="product-description">{{ dish.description }}</p>
                 <p>Інгрідієнти: {{ dish.compound }}</p>
                 <p>Час приготування: {{dish.cooking_time}}</p>
-
                 <a href="{% url 'cart_add' %}" class="add-to-cart" data-dish-id="{{ dish.id }}" >{% csrf_token %}<div class="add_but_div">Додати до корзини</div></a>
             </div>
         </div>
