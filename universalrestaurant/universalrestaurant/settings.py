@@ -1,5 +1,3 @@
-
-
 from pathlib import Path
 
 from django.conf.global_settings import STATICFILES_DIRS, AUTH_USER_MODEL, LOGIN_URL

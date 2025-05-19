@@ -123,6 +123,7 @@
 }
 
 .details > button{
+
     width: 35%;
     height: 35px;
     border-radius: 15px;
@@ -134,4 +135,13 @@
  }
 .details > button:hover{
     transform: scale(1.05);
+}
+
+.errorlist > li{
+    color: black;
+    border: 2px solid red;
+    border-radius: 15px;
+    background-color: lightcoral;
+    padding: 5px;
+
 }

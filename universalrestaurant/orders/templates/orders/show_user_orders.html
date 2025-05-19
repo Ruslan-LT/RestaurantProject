@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block static %}
+<link rel="stylesheet" type="text/css" href="{% static 'show_orders.css' %}">
+{% endblock %}
+{% block content %}
+<div class="block_modal">
+    <div class="order_modal">
+        <div class="order_title_div"><h2>Мої замовлення</h2></div>
+        {% for order in orders %}
+            <div class="order_div" style="border-color: {% if order.status == 'В обробці' %}blue{% elif order.status == 'Відхилено' %}red{% else %}lightgreen{% endif %};">
+                <p> Замовлення № {{ order.id }}| Дата замовлення: {{ order.created_timestamp }}  |  Статус: {{ order.status }}</p>
+                {% for item in order.orderitem_set.all %}
+                <div class="order_desc">
+                    <p>Назва страви: {{ item.dish.name}}</p>
+                    <p>Кількість: {{ item.quantity }}</p>
+                    <p>Ціна: {{ item.price }}</p>
+                    <p>Загальна ціна: {{ item.product_price }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

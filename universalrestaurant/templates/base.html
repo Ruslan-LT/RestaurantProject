@@ -6,7 +6,7 @@
     <title>{{ title }}</title>
     <link type="text/css" href="{% static 'restaurant/css/main_page.css' %}" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    {%block static%}{%endblock%}
+    {% block static %}{% endblock %}
 </head>
 <body>
     <div class="header_container">
@@ -30,6 +30,7 @@
                    {% endfor %}
                </ul>
            </div>
+           <a href="{% url nav_buttons.my_orders_but.ref %}"><button class="main_button2">{{ nav_buttons.my_orders_but.title }}</button></a>
            <div class="menu_container" id="username" style="margin: 30px"><p style="color:white">{{ user.username }}</p><i class='bx bx-user' style='color:#ffffff; font-size: 20px'  ></i></div>
            {% endif %}
            {% if not user.is_authenticated %}
